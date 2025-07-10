@@ -13,7 +13,7 @@
         <span id="greeting" class="header-greeting"></span>
     </header>
     <main>
-        <div class="centerpiece">
+        <div class="centerpiece" id="search">
             <img src="logoo.png" alt="Nostalgia Logo" class="main-logo">
             <form class="search-bar" action="#" method="get">
                 <input type="text" placeholder="Search here" name="q">
@@ -22,6 +22,16 @@
                 </button>
             </form>
         </div>
+        <h1 id="upload-sign">Upload Section</h1>
+        <div class="Upload">
+            <form id="uploadForm" action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Upload Image</button>
+                <div id="uploadMsg"></div>
+            </form>
+        </div>
+        <h1 id="gallery-sign">Gallery</h1>
+        <div id="gallery" class="gallery"></div>
     </main>
     <footer>
         Nostalgia &copy;2025
