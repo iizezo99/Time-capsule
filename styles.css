@@ -1,0 +1,100 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0a0610;
+    background-image: url('background.png'); /* Update with your image filename */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(0,0,0,0.35);
+    box-shadow: none;
+    padding: 1.2rem 1rem 1.2rem 1rem;
+    text-align: left;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+footer {
+    background: transparent;
+    color: #e0d6ff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+    header {
+        padding: 1.2rem 0.5rem 0.7rem 0.5rem;
+    }
+    main {
+        padding: 1rem 0.5rem;
+    }
+    footer {
+        font-size: 0.95rem;
+        padding: 0.7rem 0;
+    }
+}
+
+
+/* Minimal greeting style */
+main div {
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+    color: #e0d6ff;
+    background: rgba(20, 10, 40, 0.15);
+    border-radius: 8px;
+    padding: 0.7rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    text-align: center;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    height: 70px;
+    max-width: 180px;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1.2rem;
+}
+
+.header-greeting {
+    color: #e0d6ff;
+    font-size: 1.25rem;
+    margin-left: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    opacity: 0.92;
+    white-space: nowrap;
+} 
