@@ -31,10 +31,7 @@ header {
 
 main {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
+    padding: 0;
 }
 
 footer {
@@ -97,4 +94,65 @@ main div {
     vertical-align: middle;
     opacity: 0.92;
     white-space: nowrap;
+}
+
+.centerpiece {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 100;
+    padding-top: 0;
+}
+
+.main-logo {
+    height: 90px;
+    max-width: 420px;
+    margin-bottom: 0.7rem;
+    object-fit: contain;
+    display: block;
+}
+
+.search-bar {
+    display: flex;
+    width: 90vw;
+    max-width: 600px;
+    background: rgba(255,255,255,0.13);
+    border-radius: 2rem;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+    padding: 0.2rem 0.7rem 0.2rem 1.2rem;
+    justify-content: center;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1.15rem;
+    padding: 0.9rem 0;
+    outline: none;
+    color: #e0d6ff;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #ccc;
+    opacity: 1;
+    font-size: 1.08rem;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0 0.7rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    font-size: 1.35rem;
+    color: #e0d6ff;
+    opacity: 0.85;
 } 
