@@ -42,6 +42,7 @@ nav {
     align-items: center;
     justify-content: flex-start;
     background: rgba(0,0,0,0.35);
+    background-position: center center;
     box-shadow: none;
     text-align: left;
     z-index: 1;
