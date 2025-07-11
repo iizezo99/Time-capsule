@@ -36,11 +36,5 @@ The team consists of:
 ---
 
 ## 🚀 Quick Start
-
-```bash
-git clone https://github.com/iizezo99/Time-capsule.git
-cd Time-capsule
-npm install
-npm run start
-
-- **go to http://localhost:5000** and see our website🔥.
+- *visit*
+- https://iizezo99.github.io/Time-capsule
