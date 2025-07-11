@@ -10,7 +10,7 @@ The team consists of:
 - **Abdulaziz Sleem** — *Web Developer*  
 - **Jana Gawish** — *Graphic Designer*  
 - **Zeyad Khalid** — *AI and Data Science Expert*
-***we were proud and delighted to do such a work✨🔥.***
+- ***we were proud and delighted to do such a work✨🔥.***
 ## 🌟 Features
 
 - **Image Upload**
