@@ -3,7 +3,6 @@ const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
 const fs = require('fs');
-
 const app = express();
 
 // Storage config: save all files in 'uploads', prefix filename with date
@@ -44,6 +43,22 @@ app.use('/uploads', express.static('uploads'));
 
 app.use(cors());
 
+// Helper: Recursively get all image filenames in uploads and subfolders
+const IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg'];
+function getAllImageFilenames(dir) {
+  let results = [];
+  const list = fs.readdirSync(dir, { withFileTypes: true });
+  list.forEach(file => {
+    const filePath = path.join(dir, file.name);
+    if (file.isDirectory()) {
+      results = results.concat(getAllImageFilenames(filePath));
+    } else if (IMAGE_EXTS.includes(path.extname(file.name).toLowerCase())) {
+      results.push(file.name);
+    }
+  });
+  return results;
+}
+
 app.post('/upload', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).send('No file uploaded or invalid file type.');
@@ -53,26 +68,10 @@ app.post('/upload', upload.single('image'), (req, res) => {
   res.json({ fileUrl });
 });
 
-const IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg'];
-
-function getAllImages(dir, baseUrl = '/uploads') {
-  let results = [];
-  const list = fs.readdirSync(dir, { withFileTypes: true });
-  list.forEach(file => {
-    const filePath = path.join(dir, file.name);
-    if (file.isDirectory()) {
-      results = results.concat(getAllImages(filePath, baseUrl + '/' + file.name));
-    } else if (IMAGE_EXTS.includes(path.extname(file.name).toLowerCase())) {
-      results.push(baseUrl + '/' + file.name);
-    }
-  });
-  return results;
-}
-
 app.get('/gallery', (req, res) => {
   try {
-    const images = getAllImages('uploads');
-    res.json(images);
+    const filenames = getAllImageFilenames('uploads');
+    res.json(filenames);
   } catch (err) {
     res.status(500).json({ error: 'Failed to read uploads folder.' });
   }

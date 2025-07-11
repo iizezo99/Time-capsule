@@ -36,15 +36,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Gallery fetch and display
+    // Gallery fetch and display (using filenames)
+    let allFilenames = [];
+    const gallery = document.getElementById('gallery');
+    const searchForm = document.querySelector('.search-bar');
+    const searchInput = searchForm ? searchForm.querySelector('input[type="text"]') : null;
+
+    function renderGallery(filenames) {
+        if (gallery && Array.isArray(filenames)) {
+            gallery.innerHTML = filenames.map(filename =>
+                `<div class="gallery-item">
+                    <img src="http://localhost:3000/uploads/${filename}" alt="Gallery Image">
+                    <div class="gallery-filename">${filename}</div>
+                </div>`
+            ).join('');
+        }
+    }
+
     fetch('http://localhost:3000/gallery')
         .then(res => res.json())
-        .then(urls => {
-            const gallery = document.getElementById('gallery');
-            if (gallery && Array.isArray(urls)) {
-                gallery.innerHTML = urls.map(url =>
-                    `<img src="http://localhost:3000${url}" alt="Gallery Image">`
-                ).join('');
-            }
+        .then(filenames => {
+            allFilenames = filenames;
+            renderGallery(allFilenames);
         });
+
+    function filterGallery() {
+        const query = searchInput ? searchInput.value.trim() : '';
+        let filtered = allFilenames;
+        if (query) {
+            try {
+                const regex = new RegExp(query, 'i');
+                filtered = allFilenames.filter(filename => regex.test(filename));
+            } catch (e) {
+                // If regex is invalid, show all images
+                filtered = allFilenames;
+            }
+        }
+        renderGallery(filtered);
+    }
+
+    if (searchForm && searchInput) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            filterGallery();
+        });
+        searchInput.addEventListener('input', function() {
+            filterGallery();
+        });
+    }
 }); 

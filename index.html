@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <nav class="navbar">
         <img src="nostalgia.png" alt="Nostalgia Logo" class="logo">
         <span id="greeting" class="header-greeting"></span>
-    </header>
+        <a href="#search">Search</a>
+        <a href="#upload-sign">Upload</a>
+        <a href="#gallery-sign">Gallery</a>
+        <a href="#about-us">About Us</a>
+    </nav>
     <main>
         <div class="centerpiece" id="search">
             <img src="logoo.png" alt="Nostalgia Logo" class="main-logo">
@@ -30,12 +34,19 @@
                 <div id="uploadMsg"></div>
             </form>
         </div>
+       
         <h1 id="gallery-sign">Gallery</h1>
         <div id="gallery" class="gallery"></div>
+        <div id="about-us" class="about-us">
+            <div class="about-images">
+                <img src="About Us(1).png" alt="About Us 1">
+                <img src="About Us(2).png" alt="About Us 2">
+            </div>
+        </div>
     </main>
     <footer>
         Nostalgia &copy;2025
-    </footer>
+    </footer> 
     <script src="script.js"></script>
 </body>
 </html>
