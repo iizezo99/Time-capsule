@@ -41,4 +41,6 @@ The team consists of:
 git clone https://github.com/iizezo99/Time-capsule.git
 cd Time-capsule
 npm install
-node Multer.js
+npm run start
+
+- **go to http://localhost:5000** and see our website🔥.
