@@ -441,7 +441,6 @@ main div {
     justify-content: center;
     align-items: center;
     gap: 2.2rem;
-    padding: 1.2rem 0 1.2rem 0;
     box-shadow: 0 2px 16px 0 rgba(128,0,255,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.10);
     border-radius: 0 0 18px 18px;
     transition: background 0.25s, box-shadow 0.18s;
